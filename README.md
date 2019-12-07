@@ -18,7 +18,7 @@ The central purpose of this app is to be a quick guiding tool to any person who 
 ### The app is in it's way...  WAIT FOR IT!
 
 
-This will be all the features of our app in R:
+These will be the features of our Dash in R:
 
 - The app consists of 2 sections. The menu section at the top allows the user to choose the data he or she would like to visualize. The section below is the plot section and this is where the data is visualized.
 
