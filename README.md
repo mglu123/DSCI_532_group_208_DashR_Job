@@ -15,8 +15,7 @@ The central purpose of this app is to be a quick guiding tool to any person who 
 ### Our App
 
 
-# The app is in it's way...
-# Wait for it!
+### The app is in it's way...  WAIT FOR IT!
 
 
 This will be all the features of our app in R:
