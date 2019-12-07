@@ -33,20 +33,7 @@ These will be the features of our Dash in R:
   
 ### Our plots in R
 
-The app should present 4 plots, which code is in the 'Code' folder on this repo.
+The app will have the next four plots:
+![Plots](Img/screenshot_milestone_3.png "Screenshot for milestone 3")
 
-- This is the Popular jobs bar plot.
-![Pop-jobs_bar-plot](Img/Pop-jobs_bar-plot.png "Popular jobs bar plot")
-  
-  
-- This is the Popular jobs line plot.
-![Pop-jobs_line-plot](Img/Pop-jobs_line-plot.png "Popular jobs line plot")
-  
-  
-- This is the Stable jobs bar plot.
-![Stable-jobs_bar-plot](Img/Stable-jobs_bar-plot.png "Stable jobs bar plot")
-
-
-- This is the Stable jobs line plot.
-![Stable-jobs_line-plot](Img/Stable-jobs_line-plot.png "Stable jobs line plot")
-  
+Here you can find the [Code of the R plots](https://github.com/UBC-MDS/DSCI_532_group_208_DashR_Job/blob/master/Code/job_plots.ipynb) and the [folder with the images of the plots](https://github.com/UBC-MDS/DSCI_532_group_208_DashR_Job/tree/master/Img).
