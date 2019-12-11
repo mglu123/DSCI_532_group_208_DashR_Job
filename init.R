@@ -10,7 +10,7 @@ options(repos=r)
 
 # packages go here
 install.packages("remotes")
-
+install.packages("tidyverse")
 # installs Rcpp, rlang, BH
 install.packages("later")
 
