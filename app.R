@@ -4,7 +4,6 @@ library(dashHtmlComponents)
 library(dashTable)
 library(tidyverse)
 library(plotly)
-library(gapminder)
 library(scales)
 # Retriving the data
 df_stable <- read.csv('most_stable_job.csv', header=TRUE , sep=',')
