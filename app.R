@@ -150,6 +150,7 @@ app$layout(
     list(
       htmlH1('Job Tracker'),
       htmlH2("Find the most stable jobs from 1850 to 2000 and most popular job in 2000 "),
+      htmlH3("Please click the legend to deselect the bar which is to be excluded from the visualization"),
       graphDropdown,
       graphRadio,
       htmlIframe(height=80, width=10, style=list(borderWidth = 0)),
