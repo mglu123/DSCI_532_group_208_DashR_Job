@@ -6,8 +6,8 @@ library(tidyverse)
 library(plotly)
 library(scales)
 # Retriving the data
-df_stable <- read.csv('most_stable_job.csv', header=TRUE , sep=',')
-df_2M_pop <- read.csv('2000_pop_job.csv', header=TRUE , sep=',')
+df_stable <- read.csv('https://raw.githubusercontent.com/mglu123/DSCI_532_group_208_DashR_Job/master/Data/most_stable_job.csv', header=TRUE , sep=',')
+df_2M_pop <- read.csv('https://raw.githubusercontent.com/mglu123/DSCI_532_group_208_DashR_Job/master/Data/2000_pop_job.csv', header=TRUE , sep=',')
 
 
 app <- Dash$new(external_stylesheets = "https://codepen.io/chriddyp/pen/bWLwgP.css")
@@ -21,8 +21,8 @@ graphDropdown <- dccDropdown(
   # map/lapply can be used as a shortcut instead of writing the whole list
   # especially useful if you wanted to filter by country!
   options = list(
-    list(label = "Top 10 stable job", value = "sd"),
-    list(label = "Top 10 popular job", value = "pop")),
+    list(label = "Top 10 stable job from 1850 to 2000", value = "sd"),
+    list(label = "Top 10 popular job in 2000", value = "pop")),
   value = 'sd', #Selects all by default
   clearable= FALSE,
   multi = FALSE
@@ -56,7 +56,7 @@ plot_stable_bar <- wrang_stable %>%
         #        legend.position = "none"
   ) 
 
-bar_sd <- ggplotly(plot_stable_bar, height= 2000) 
+#bar_sd <- ggplotly(plot_stable_bar, height= 2000) 
 
 # Popular jobs in 2000 - bar plot
 wrang_pop <- df_2M_pop %>% filter(year_x == 2000) %>% arrange(desc(together_y))
@@ -77,7 +77,7 @@ plot_pop_bar <- wrang_pop %>%
         legend.text = element_text(size = 6)
         #        legend.position = "none"
   ) 
-bar_pop <- ggplotly(plot_pop_bar, height= 2000) 
+#bar_pop <- ggplotly(plot_pop_bar, height= 2000) 
 
 wrang_stable2 <- df_stable %>% filter(sex == 'men')
 wrang_stable2$job <- factor(wrang_stable2$job) %>% fct_relevel(levels(wrang_stable$job))
@@ -97,7 +97,7 @@ plot_stable_line <- wrang_stable2 %>%
         legend.title = element_text(size = 8),
         legend.text = element_text(size = 8)
   ) 
-line_sd <-ggplotly(plot_stable_line, height= 2000) 
+#line_sd <-ggplotly(plot_stable_line, height= 2000) 
 
 # Popular jobs in 2000 - line plot
 wrang_pop2 <- df_2M_pop
@@ -119,19 +119,19 @@ plot_pop_line <- wrang_pop2 %>%
         legend.title = element_text(size = 8),
         legend.text = element_text(size = 8)
   ) 
-line_pop <-ggplotly(plot_pop_line, height= 2000) 
+#line_pop <-ggplotly(plot_pop_line, height= 2000) 
 ###########
 
 make_graph <- function(chart_type = 'bar',
                        categ = 'sd'){
   if(chart_type == 'both' && categ == 'sd'){
-    return(subplot(bar_sd, line_sd, nrows = 2))
+    return(subplot(ggplotly(plot_stable_bar, height= 850), ggplotly(plot_stable_line, height= 850),which_layout = 1))
   }else if (chart_type == 'both' && categ == 'pop'){
-    return(subplot(bar_pop, line_pop, nrows = 2))
+    return(subplot(ggplotly(plot_pop_bar, height= 850), ggplotly(plot_pop_line, height= 850),which_layout = 1))
   }else if (chart_type == 'bar' && categ == 'sd'){
-    return(bar_sd)
+    return(ggplotly(plot_stable_bar, height= 1000) )
   }else if (chart_type == 'bar' && categ == 'pop'){
-    return(bar_pop)
+    return(ggplotly(plot_pop_bar, height= 1000))
   }
   
   
