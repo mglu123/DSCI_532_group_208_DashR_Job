@@ -21,8 +21,8 @@ graphDropdown <- dccDropdown(
   # map/lapply can be used as a shortcut instead of writing the whole list
   # especially useful if you wanted to filter by country!
   options = list(
-    list(label = "Top 10 stable job", value = "sd"),
-    list(label = "Top 10 popular job", value = "pop")),
+    list(label = "Top 10 stable job from 1850 to 2000", value = "sd"),
+    list(label = "Top 10 popular job in 2000", value = "pop")),
   value = 'sd', #Selects all by default
   clearable= FALSE,
   multi = FALSE
