@@ -125,9 +125,9 @@ plot_pop_line <- wrang_pop2 %>%
 make_graph <- function(chart_type = 'bar',
                        categ = 'sd'){
   if(chart_type == 'both' && categ == 'sd'){
-    return(subplot(ggplotly(plot_stable_bar, height= 1000), ggplotly(plot_stable_line, height= 1000),which_layout = 1))
+    return(subplot(ggplotly(plot_stable_bar, height= 850), ggplotly(plot_stable_line, height= 850),which_layout = 1))
   }else if (chart_type == 'both' && categ == 'pop'){
-    return(subplot(ggplotly(plot_pop_bar, height= 1000), ggplotly(plot_pop_line, height= 1000),which_layout = 1))
+    return(subplot(ggplotly(plot_pop_bar, height= 850), ggplotly(plot_pop_line, height= 850),which_layout = 1))
   }else if (chart_type == 'bar' && categ == 'sd'){
     return(ggplotly(plot_stable_bar, height= 1000) )
   }else if (chart_type == 'bar' && categ == 'pop'){
