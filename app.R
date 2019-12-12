@@ -6,8 +6,8 @@ library(tidyverse)
 library(plotly)
 library(scales)
 # Retriving the data
-df_stable <- read.csv('most_stable_job.csv', header=TRUE , sep=',')
-df_2M_pop <- read.csv('2000_pop_job.csv', header=TRUE , sep=',')
+df_stable <- read.csv('Data/most_stable_job.csv', header=TRUE , sep=',')
+df_2M_pop <- read.csv('Data/2000_pop_job.csv', header=TRUE , sep=',')
 
 
 app <- Dash$new(external_stylesheets = "https://codepen.io/chriddyp/pen/bWLwgP.css")
