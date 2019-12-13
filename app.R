@@ -45,7 +45,7 @@ plot_stable_bar <- wrang_stable %>%
   ggplot(aes(x = job, y = std, fill = job)) + 
   geom_col() +
   ylab("Standard Deviation") + xlab("Job") +
-  ggtitle("SD of the Ten Most Stable Jobs from 1850 to 2000") +
+  ggtitle("Left: SD of the Ten Most Stable Jobs from 1850 to 2000 | Right:Trend of corresponding jobs") +
   scale_y_continuous(labels = comma) +
   theme_bw()+
   theme(axis.text = element_text(size = 10),
@@ -68,7 +68,7 @@ plot_pop_bar <- wrang_pop %>%
   ggplot(aes(x = job, y = together_y, fill = job)) + 
   geom_col() +
   ylab("Percentage") + xlab("Job") +
-  ggtitle("Percentage of the Ten Most Popular Jobs in 2000") +
+  ggtitle("Left:Percentage of the Ten Most Popular Jobs in 2000 | Right: Trend of corresponding jobs") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
   theme(axis.text = element_text(size = 10),
@@ -160,7 +160,7 @@ app$layout(
     list(
       htmlH1('Job Tracker'),
       htmlH2("Find the most stable jobs from 1850 to 2000 and most popular job in 2000 "),
-      htmlH3("Please click the legend to deselect the bar which is to be excluded from the visualization"),
+      htmlH3("Please click the legend to hide the job you are not interested in"),
       graphDropdown,
       graphRadio,
       htmlIframe(height=80, width=10, style=list(borderWidth = 0)),
