@@ -45,7 +45,7 @@ plot_stable_bar <- wrang_stable %>%
   ggplot(aes(x = job, y = std, fill = job)) + 
   geom_col() +
   ylab("Standard Deviation") + xlab("Job") +
-  ggtitle("Left: SD of the Ten Most Stable Jobs from 1850 to 2000 | Right:Trend of corresponding jobs") +
+  ggtitle("SD of the Ten Most Stable Jobs from 1850 to 2000") +
   scale_y_continuous(labels = comma) +
   theme_bw()+
   theme(axis.text = element_text(size = 10),
@@ -68,7 +68,7 @@ plot_pop_bar <- wrang_pop %>%
   ggplot(aes(x = job, y = together_y, fill = job)) + 
   geom_col() +
   ylab("Percentage") + xlab("Job") +
-  ggtitle("Left:Percentage of the Ten Most Popular Jobs in 2000 | Right: Trend of corresponding jobs") +
+  ggtitle("Percentage of the Ten Most Popular Jobs in 2000") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
   theme(axis.text = element_text(size = 10),
@@ -92,7 +92,7 @@ plot_stable_line <- wrang_stable2 %>%
   geom_line() +
   geom_point() +
   ylab("Percentage in Total Work Force") + xlab("Year") +
-  ggtitle("Populariy of Ten Most Stable Jobs Over Time") +
+  ggtitle("SD of the Ten Most Stable Jobs from 1850 to 2000                                    Trend of corresponding jobs") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
   theme(axis.text.x = element_text(size = 10, angle = 30, hjust = 1),
@@ -117,7 +117,7 @@ plot_pop_line <- wrang_pop2 %>%
   geom_line() +
   geom_point() +
   ylab("Percentage in Total Work Force") + xlab("Year") +
-  ggtitle("Populariy Trend of 2000's Ten Most Popular Jobs") +
+  ggtitle("Percentage of the Ten Most Popular Jobs in 2000                            Trend of corresponding jobs") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
   theme(axis.text.x = element_text(size = 10, angle = 30, hjust = 1),
@@ -135,9 +135,9 @@ plot_pop_line <- wrang_pop2 %>%
 make_graph <- function(chart_type = 'bar',
                        categ = 'sd'){
   if(chart_type == 'both' && categ == 'sd'){
-    return(subplot(ggplotly(plot_stable_bar, height= 850), ggplotly(plot_stable_line, height= 850),which_layout = 1))
+    return(subplot(ggplotly(plot_stable_bar, height= 850), ggplotly(plot_stable_line, height= 850),which_layout = 2))
   }else if (chart_type == 'both' && categ == 'pop'){
-    return(subplot(ggplotly(plot_pop_bar, height= 850), ggplotly(plot_pop_line, height= 850),which_layout = 1))
+    return(subplot(ggplotly(plot_pop_bar, height= 850), ggplotly(plot_pop_line, height= 850),which_layout = 2))
   }else if (chart_type == 'bar' && categ == 'sd'){
     return(ggplotly(plot_stable_bar, height= 1000) )
   }else if (chart_type == 'bar' && categ == 'pop'){
