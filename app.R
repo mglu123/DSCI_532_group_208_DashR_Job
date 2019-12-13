@@ -37,6 +37,7 @@ graphRadio <- dccRadioItems(
 )
 
 ##########
+# Stable jobs - bar plot
 wrang_stable <- df_stable %>% filter(year_x == 2000, sex == 'men') %>% arrange(std)
 wrang_stable$job <- factor(wrang_stable$job, levels = wrang_stable$job[order(wrang_stable$std)])
 options(repr.plot.width = 50, repr.plot.height = 50)
@@ -47,13 +48,14 @@ plot_stable_bar <- wrang_stable %>%
   ggtitle("SD of the Ten Most Stable Jobs from 1850 to 2000") +
   scale_y_continuous(labels = comma) +
   theme_bw()+
-  theme(axis.text = element_text(size = 8),
-        axis.title = element_text(size = 9),
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 10),
         axis.text.x = element_text(angle = 30, hjust = 1),
-        plot.title = element_text(size = 10) ,
-        legend.title = element_text(size = 6),
-        legend.text = element_text(size = 6)
-        #        legend.position = "none"
+        plot.title = element_text(size = 12) ,
+        #legend.title = element_text(size = 6),
+        legend.text = element_text(size = 8),
+        #legend.position = "none",
+        legend.title = element_blank()
   ) 
 
 #bar_sd <- ggplotly(plot_stable_bar, height= 2000) 
@@ -69,16 +71,19 @@ plot_pop_bar <- wrang_pop %>%
   ggtitle("Percentage of the Ten Most Popular Jobs in 2000") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
-  theme(axis.text = element_text(size = 8),
-        axis.title = element_text(size = 9),
+  theme(axis.text = element_text(size = 10),
+        axis.title = element_text(size = 10),
         axis.text.x = element_text(angle = 30, hjust = 1),
-        plot.title = element_text(size = 10) ,
-        legend.title = element_text(size = 6),
-        legend.text = element_text(size = 6)
-        #        legend.position = "none"
+        plot.title = element_text(size = 12) ,
+        #legend.title = element_text(size = 6),
+        legend.text = element_text(size = 8),
+        #legend.position = "none"
+        legend.title = element_blank()
   ) 
 #bar_pop <- ggplotly(plot_pop_bar, height= 2000) 
 
+
+# Stable jobs - line plot
 wrang_stable2 <- df_stable %>% filter(sex == 'men')
 wrang_stable2$job <- factor(wrang_stable2$job) %>% fct_relevel(levels(wrang_stable$job))
 
@@ -90,14 +95,17 @@ plot_stable_line <- wrang_stable2 %>%
   ggtitle("Populariy of Ten Most Stable Jobs Over Time") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
-  theme(axis.text = element_text(size = 8),
-        axis.title = element_text(size = 9),
-        axis.text.x = element_text(angle = 30, hjust = 1),
-        plot.title = element_text(size = 10) ,
-        legend.title = element_text(size = 8),
-        legend.text = element_text(size = 8)
-  ) 
+  theme(axis.text.x = element_text(size = 10, angle = 30, hjust = 1),
+        axis.text.y = element_text(size = 8),
+        axis.title = element_text(size = 10),
+        plot.title = element_text(size = 12) ,
+        #legend.title = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        #legend.position = "none"
+        legend.title = element_blank()
+  )  
 #line_sd <-ggplotly(plot_stable_line, height= 2000) 
+
 
 # Popular jobs in 2000 - line plot
 wrang_pop2 <- df_2M_pop
@@ -112,12 +120,14 @@ plot_pop_line <- wrang_pop2 %>%
   ggtitle("Populariy Trend of 2000's Ten Most Popular Jobs") +
   scale_y_continuous(labels = percent) +
   theme_bw()+
-  theme(axis.text = element_text(size = 8),
-        axis.title = element_text(size = 9),
-        axis.text.x = element_text(angle = 30, hjust = 1),
-        plot.title = element_text(size = 10) ,
-        legend.title = element_text(size = 8),
-        legend.text = element_text(size = 8)
+  theme(axis.text.x = element_text(size = 10, angle = 30, hjust = 1),
+        axis.text.y = element_text(size = 8),
+        axis.title = element_text(size = 10),
+        plot.title = element_text(size = 12) ,
+        #legend.title = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        #legend.position = "none"
+        legend.title = element_blank()
   ) 
 #line_pop <-ggplotly(plot_pop_line, height= 2000) 
 ###########
