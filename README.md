@@ -1,5 +1,4 @@
-# DSCI_532_group_208_DashR_Job
-Milestone 3 and 4  
+# Job Data Analysis
 
 ### Team members
 Huayue -Luke- Lu: [mglu123](https://github.com/mglu123)  
